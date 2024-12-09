@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://csxjuwhmckt36"]
+[gd_scene load_steps=2 format=3 uid="uid://dxrqyd8liyse4"]
+
+[ext_resource type="Script" path="res://pages/onDoubleClickTrait.gd" id="1_xaodh"]
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(0, 50)
@@ -6,6 +8,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 8.0
 grow_horizontal = 2
+script = ExtResource("1_xaodh")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
@@ -28,3 +31,6 @@ text = "1234"
 horizontal_alignment = 2
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

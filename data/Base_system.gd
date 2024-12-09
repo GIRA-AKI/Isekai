@@ -16,3 +16,17 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+#data for  traits
+var good_traits = [
+	{"id":101,"type":1,"title": "Strength", "point": 15, "HP": 60, "mana": 10, "stamina": 50, "power": 45, "mentalHealth": 10, "speakingSkills": 5, "charisma": 15, "dodge": 12},
+	{"id":102,"type":1,"title": "Agility", "point": 12, "HP": 30, "mana": 40, "stamina": 35, "power": 20, "mentalHealth": 20, "speakingSkills": 10, "charisma": 5, "dodge": 20}
+]
+var bad_traits = [
+	{"id":103,"type":0,"title": "Weak", "point": 15, "HP": 60, "mana": 10, "stamina": 50, "power": 45, "mentalHealth": 10, "speakingSkills": 5, "charisma": 15, "dodge": 12},
+	{"id":104,"type":0,"title": "Fat", "point": 12, "HP": 30, "mana": 40, "stamina": 35, "power": 20, "mentalHealth": 20, "speakingSkills": 10, "charisma": 5, "dodge": 20}
+]
+var playerTraits = [
+	
+]
