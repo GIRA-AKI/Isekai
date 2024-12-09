@@ -1,0 +1,51 @@
+[gd_resource type="JSON" format=3 uid="uid://ckx6p5uh8jxu6"]
+
+[resource]
+data = {
+"available_traits": [{
+"HP": 60.0,
+"charisma": 15.0,
+"dodge": 12.0,
+"mana": 10.0,
+"mentalHealth": 10.0,
+"point": 15.0,
+"power": 45.0,
+"speakingSkills": 5.0,
+"stamina": 50.0,
+"title": "Strength"
+}, {
+"HP": 30.0,
+"charisma": 5.0,
+"dodge": 20.0,
+"mana": 40.0,
+"mentalHealth": 20.0,
+"point": 12.0,
+"power": 20.0,
+"speakingSkills": 10.0,
+"stamina": 35.0,
+"title": "Agility"
+}],
+"selected_traits": [{
+"HP": 50.0,
+"charisma": 10.0,
+"dodge": 8.0,
+"mana": 20.0,
+"mentalHealth": 15.0,
+"point": 10.0,
+"power": 25.0,
+"speakingSkills": 5.0,
+"stamina": 30.0,
+"title": "Bravery"
+}, {
+"HP": 40.0,
+"charisma": 20.0,
+"dodge": 5.0,
+"mana": 60.0,
+"mentalHealth": 50.0,
+"point": 20.0,
+"power": 30.0,
+"speakingSkills": 15.0,
+"stamina": 10.0,
+"title": "Wisdom"
+}]
+}
