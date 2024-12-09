@@ -1,0 +1,99 @@
+[gd_scene load_steps=2 format=3 uid="uid://da02rro637oqh"]
+
+[ext_resource type="Script" path="res://setting_manu.gd" id="1_ahksi"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_ahksi")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="window text" type="Label" parent="Control"]
+layout_mode = 0
+anchor_left = 0.416667
+anchor_top = 0.271605
+anchor_right = 0.503472
+anchor_bottom = 0.307099
+offset_top = 1.52588e-05
+text = "<WIN_MOD>"
+metadata/_edit_use_anchors_ = true
+
+[node name="windon-mod" type="OptionButton" parent="Control"]
+layout_mode = 0
+anchor_left = 0.416667
+anchor_top = 0.308642
+anchor_right = 0.569444
+anchor_bottom = 0.37037
+offset_bottom = 1.52588e-05
+selected = 0
+item_count = 2
+popup/item_0/text = "Window"
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="size window text" type="Label" parent="Control"]
+layout_mode = 0
+anchor_left = 0.416667
+anchor_top = 0.37037
+anchor_right = 0.503472
+anchor_bottom = 0.405864
+offset_top = 1.52588e-05
+text = "<WIN_SIZE>"
+metadata/_edit_use_anchors_ = true
+
+[node name="size-window" type="OptionButton" parent="Control"]
+layout_mode = 0
+anchor_left = 0.416667
+anchor_top = 0.407407
+anchor_right = 0.569444
+anchor_bottom = 0.469136
+selected = 1
+item_count = 3
+popup/item_0/text = "1024 x 768"
+popup/item_1/text = "1152 x 648"
+popup/item_1/id = 1
+popup/item_2/text = "1920 x 1080"
+popup/item_2/id = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="borderless text" type="Label" parent="Control"]
+layout_mode = 0
+anchor_left = 0.416667
+anchor_top = 0.469136
+anchor_right = 0.503472
+anchor_bottom = 0.50463
+text = "<BORDER>"
+metadata/_edit_use_anchors_ = true
+
+[node name="borderless" type="OptionButton" parent="Control"]
+layout_mode = 0
+anchor_left = 0.416667
+anchor_top = 0.506173
+anchor_right = 0.569444
+anchor_bottom = 0.567901
+selected = 0
+item_count = 2
+popup/item_0/text = "OFF"
+popup/item_1/text = "ON"
+popup/item_1/id = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="back" type="Button" parent="Control"]
+layout_mode = 0
+anchor_left = 0.0277778
+anchor_top = 0.888889
+anchor_right = 0.138889
+anchor_bottom = 0.950617
+text = "<BACK>"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="item_selected" from="Control/windon-mod" to="." method="_on_windonmod_item_selected"]
+[connection signal="item_selected" from="Control/size-window" to="." method="_on_sizewindow_item_selected"]
+[connection signal="item_selected" from="Control/borderless" to="." method="_on_borderless_item_selected"]
+[connection signal="pressed" from="Control/back" to="." method="_on_back_pressed"]

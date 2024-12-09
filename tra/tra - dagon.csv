@@ -1,0 +1,29 @@
+key,en,th
+<EN>,Eng,อังกฤษ
+<TH>,Thai,ไทย
+<NAME>,Name,ชื่อ
+<NAME_P>,Name Player,ชื่อผู้เล่น
+<IP>,IP,ไอพี
+<BACK>,Back,กลับ
+<EXIT>,Exit,ออกเกม
+<JOIN>,Join,ร่วม
+<HOST>,Host,สร้างห้อง
+<SETTING>,Setting,ตั้งค่า
+<WIN_MOD>,Window Mod,รูปแบบหน้าจอ
+<WIN_SIZE>,Window Size,ขนาดหน้าจอ
+<BORDER>,Borderless,ไร้ขอบ
+<START>,Start,เริ่ม
+OFF,OFF,ปิด
+ON,ON,เปิด
+<NEW_GAME>,New Game,เริ่มเกมใหม่
+<LOAD_SAVE>,Load Save,โหลด
+<LOAD_FROM_FILE>,Load From File,โหลดจากไฟล์
+<LOAD_ON_SYSTEM>,Load On System,โหลดในระบบ
+<SAVE 1>,Save 1,ข้อมูล 1
+<SAVE 2>,Save 2,ข้อมูล 2
+<SAVE 3>,Save 3,ข้อมูล 3
+<GAME_MODE>,Game Mode,ระดับความยาก
+<SPAWN_POSITION>,Spawn Position,จุดเริ่มต้น
+<START_RESO>,Start Resource,ทรัพยากรเริ่มต้น
+<RANDOM>,Random,สุ่ม
+<HARD>,HARE,ยาก

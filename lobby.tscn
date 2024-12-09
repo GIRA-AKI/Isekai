@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8e2hjah0270d"]
+
+[ext_resource type="Script" path="res://lobby.gd" id="1_0c48r"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_0c48r")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 32.0
+offset_right = 280.0
+offset_bottom = 64.0
+text = "ip room"
+vertical_alignment = 1

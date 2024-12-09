@@ -1,0 +1,112 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpt3m5ii0nkby"]
+
+[ext_resource type="Script" path="res://open_game.gd" id="1_iu6vy"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_iu6vy")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="name text" type="Label" parent="Control"]
+layout_mode = 0
+anchor_left = 0.416667
+anchor_top = 0.358025
+anchor_right = 0.457465
+anchor_bottom = 0.393519
+text = "<NAME>"
+metadata/_edit_use_anchors_ = true
+
+[node name="name" type="TextEdit" parent="Control"]
+layout_mode = 0
+anchor_left = 0.416667
+anchor_top = 0.395062
+anchor_right = 0.597222
+anchor_bottom = 0.45679
+placeholder_text = "<NAME_P>"
+metadata/_edit_use_anchors_ = true
+
+[node name="ip text" type="Label" parent="Control"]
+layout_mode = 0
+anchor_left = 0.416667
+anchor_top = 0.493827
+anchor_right = 0.476563
+anchor_bottom = 0.529321
+offset_right = -5.0
+offset_bottom = -3.05176e-05
+text = "<IP>"
+metadata/_edit_use_anchors_ = true
+
+[node name="ip" type="TextEdit" parent="Control"]
+layout_mode = 0
+anchor_left = 0.416667
+anchor_top = 0.530864
+anchor_right = 0.597222
+anchor_bottom = 0.592593
+placeholder_text = "192.168.0.0"
+metadata/_edit_use_anchors_ = true
+
+[node name="join" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.513889
+anchor_top = 0.617284
+anchor_right = 0.611111
+anchor_bottom = 0.666667
+text = "<JOIN>"
+metadata/_edit_use_anchors_ = true
+
+[node name="host" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.402778
+anchor_top = 0.617284
+anchor_right = 0.5
+anchor_bottom = 0.666667
+text = "<HOST>"
+metadata/_edit_use_anchors_ = true
+
+[node name="setting" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0208333
+anchor_top = 0.888889
+anchor_right = 0.131944
+anchor_bottom = 0.950617
+text = "<SETTING>"
+metadata/_edit_use_anchors_ = true
+
+[node name="exit" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.888889
+anchor_top = 0.888889
+anchor_right = 0.972222
+anchor_bottom = 0.950617
+text = "<EXIT>"
+metadata/_edit_use_anchors_ = true
+
+[node name="la" type="OptionButton" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.847222
+anchor_top = 0.0493827
+anchor_right = 0.958333
+anchor_bottom = 0.123457
+alignment = 1
+selected = 0
+item_count = 2
+popup/item_0/text = "<EN>"
+popup/item_1/text = "<TH>"
+popup/item_1/id = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Control/host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Control/setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="Control/exit" to="." method="_on_exit_pressed"]
+[connection signal="item_selected" from="Control/la" to="." method="_on_la_item_selected"]

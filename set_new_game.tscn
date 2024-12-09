@@ -1,0 +1,120 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0ll1pnpqsc6i"]
+
+[ext_resource type="Script" path="res://set_new_game.gd" id="1_vyily"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_vyily")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionButton" type="OptionButton" parent="Control"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 264.0
+offset_right = 680.0
+offset_bottom = 304.0
+alignment = 1
+selected = 0
+item_count = 1
+popup/item_0/text = "<HARD>"
+popup/item_0/disabled = true
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 240.0
+offset_right = 568.0
+offset_bottom = 263.0
+text = "<GAME_MODE>"
+
+[node name="OptionButton2" type="OptionButton" parent="Control"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 328.0
+offset_right = 680.0
+offset_bottom = 368.0
+alignment = 1
+selected = 0
+item_count = 3
+popup/item_0/text = "<RANDOM>"
+popup/item_1/text = "ice lsland"
+popup/item_1/id = 1
+popup/item_2/text = "Forest"
+popup/item_2/id = 2
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 304.0
+offset_right = 591.0
+offset_bottom = 327.0
+text = "<SPAWN_POSITION>"
+
+[node name="OptionButton3" type="OptionButton" parent="Control"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 392.0
+offset_right = 680.0
+offset_bottom = 432.0
+alignment = 1
+selected = 0
+item_count = 5
+popup/item_0/text = "<RANDOM>"
+popup/item_1/text = "1"
+popup/item_1/id = 1
+popup/item_2/text = "2"
+popup/item_2/id = 2
+popup/item_3/text = "3"
+popup/item_3/id = 3
+popup/item_4/text = "4"
+popup/item_4/id = 4
+
+[node name="Label3" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 368.0
+offset_right = 585.0
+offset_bottom = 391.0
+text = "<START_RESO>"
+
+[node name="back" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 576.0
+offset_right = 160.0
+offset_bottom = 616.0
+text = "<BACK>"
+
+[node name="Start" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 992.0
+offset_top = 576.0
+offset_right = 1120.0
+offset_bottom = 616.0
+text = "<START>"
+
+[node name="name" type="LineEdit" parent="Control"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 200.0
+offset_right = 680.0
+offset_bottom = 239.0
+placeholder_text = "<NAME_P>"
+
+[node name="Label4" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 176.0
+offset_right = 538.0
+offset_bottom = 199.0
+text = "<NAME>"
+
+[connection signal="pressed" from="Control/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Control/Start" to="." method="_on_start_pressed"]
+[connection signal="text_changed" from="Control/name" to="." method="_on_name_text_changed"]

@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ckyxu7yeehvgm"
+
+[deps]
+
+files=["res://tra/tra - dagon.en.translation", "res://tra/tra - dagon.th.translation"]
+
+source_file="res://tra/tra - dagon.csv"
+dest_files=["res://tra/tra - dagon.en.translation", "res://tra/tra - dagon.th.translation"]
+
+[params]
+
+compress=true
+delimiter=0
