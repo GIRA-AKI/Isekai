@@ -93,6 +93,8 @@ anchor_bottom = 0.950617
 text = "<BACK>"
 metadata/_edit_use_anchors_ = true
 
+[node name="Node2D" type="Node2D" parent="."]
+
 [connection signal="item_selected" from="Control/windon-mod" to="." method="_on_windonmod_item_selected"]
 [connection signal="item_selected" from="Control/size-window" to="." method="_on_sizewindow_item_selected"]
 [connection signal="item_selected" from="Control/borderless" to="." method="_on_borderless_item_selected"]
