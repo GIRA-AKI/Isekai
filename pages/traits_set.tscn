@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://csxjuwhmckt36"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0138889
+anchor_right = 0.222222
+anchor_bottom = 0.96
+text = "text"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.777778
+anchor_right = 0.993056
+anchor_bottom = 0.984375
+text = "1234"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

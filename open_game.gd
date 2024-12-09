@@ -34,3 +34,8 @@ func _on_la_item_selected(index: int) -> void:
 func _on_host_pressed() -> void:
 	get_tree().change_scene_to_file("res://new_host.tscn")
 	pass # Replace with function body.
+
+
+
+func _on_join__on_down() -> void:
+	pass # Replace with function body.
