@@ -81,3 +81,32 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="available_points" type="Panel" parent="Control"]
+offset_left = 42.0
+offset_top = 140.0
+offset_right = 362.0
+offset_bottom = 198.0
+
+[node name="Label" type="Label" parent="Control/available_points"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.065625
+anchor_top = 0.310345
+anchor_right = 0.425
+anchor_bottom = 0.706897
+grow_horizontal = 2
+grow_vertical = 2
+text = "Available Point"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Control/available_points"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.728125
+anchor_top = 0.293103
+anchor_right = 0.953125
+anchor_bottom = 0.689655
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
