@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtdq7fuohf04m"]
+[gd_scene load_steps=2 format=3 uid="uid://cw2141wvvyk2j"]
 
 [ext_resource type="Script" path="res://pages/traits_test.gd" id="1_jhys2"]
 
@@ -13,14 +13,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="traits_good" type="Panel" parent="Control"]
+[node name="TabContainer" type="TabContainer" parent="Control"]
 layout_mode = 0
-offset_left = 384.0
-offset_top = 64.0
-offset_right = 704.0
-offset_bottom = 320.0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 800.0
+offset_bottom = 624.0
+current_tab = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/traits_good"]
+[node name="Class" type="Control" parent="Control/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Traits" type="Control" parent="Control/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="traits_good" type="Panel" parent="Control/TabContainer/Traits"]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 41.0
+offset_right = 672.0
+offset_bottom = 265.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/TabContainer/Traits/traits_good"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,22 +45,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/traits_good/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TabContainer/Traits/traits_good/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/traits_good/MarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Traits/traits_good/MarginContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="traits_bad" type="Panel" parent="Control"]
+[node name="traits_bad" type="Panel" parent="Control/TabContainer/Traits"]
 layout_mode = 0
-offset_left = 384.0
-offset_top = 360.0
-offset_right = 704.0
-offset_bottom = 616.0
+offset_left = 352.0
+offset_top = 304.0
+offset_right = 672.0
+offset_bottom = 536.0
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/traits_bad"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/TabContainer/Traits/traits_bad"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,22 +68,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/traits_bad/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TabContainer/Traits/traits_bad/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/traits_bad/MarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Traits/traits_bad/MarginContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="use_traits" type="Panel" parent="Control"]
+[node name="use_traits" type="Panel" parent="Control/TabContainer/Traits"]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 224.0
-offset_right = 360.0
-offset_bottom = 480.0
+offset_left = 8.0
+offset_top = 161.0
+offset_right = 328.0
+offset_bottom = 417.0
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/use_traits"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/TabContainer/Traits/use_traits"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,21 +91,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/use_traits/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TabContainer/Traits/use_traits/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/use_traits/MarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Traits/use_traits/MarginContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="available_points" type="Panel" parent="Control"]
-offset_left = 42.0
-offset_top = 140.0
-offset_right = 362.0
-offset_bottom = 198.0
+[node name="available_points" type="Panel" parent="Control/TabContainer/Traits"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 77.0
+offset_right = 330.0
+offset_bottom = 135.0
 
-[node name="Label" type="Label" parent="Control/available_points"]
+[node name="Label" type="Label" parent="Control/TabContainer/Traits/available_points"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.065625
@@ -100,13 +118,111 @@ grow_vertical = 2
 text = "Available Point"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="Control/available_points"]
+[node name="Label2" type="Label" parent="Control/TabContainer/Traits/available_points"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.728125
 anchor_top = 0.293103
 anchor_right = 0.953125
 anchor_bottom = 0.689655
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="tg" type="Label" parent="Control/TabContainer/Traits"]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 17.0
+offset_right = 442.0
+offset_bottom = 40.0
+text = "Traits Good"
+
+[node name="tg2" type="Label" parent="Control/TabContainer/Traits"]
+offset_left = 352.0
+offset_top = 281.0
+offset_right = 442.0
+offset_bottom = 304.0
+text = "Traits Bad"
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 64.0
+offset_right = 1088.0
+offset_bottom = 512.0
+
+[node name="hp" type="Label" parent="Control/Panel"]
+layout_mode = 2
+anchor_left = 0.125
+anchor_top = 0.0535714
+anchor_right = 0.5
+anchor_bottom = 0.125
+text = "HP"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="hpnum" type="Label" parent="Control/Panel"]
+layout_mode = 0
+anchor_left = 0.5625
+anchor_top = 0.0535714
+anchor_right = 0.8125
+anchor_bottom = 0.125
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="hp2" type="Label" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.125
+anchor_right = 0.5
+anchor_bottom = 0.196429
+text = "HP"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="hpnum2" type="Label" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5625
+anchor_top = 0.125
+anchor_right = 0.8125
+anchor_bottom = 0.196429
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="hp3" type="Label" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.196429
+anchor_right = 0.5
+anchor_bottom = 0.267857
+text = "HP"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="hpnum3" type="Label" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5625
+anchor_top = 0.196429
+anchor_right = 0.8125
+anchor_bottom = 0.267857
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
