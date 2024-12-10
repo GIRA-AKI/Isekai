@@ -21,9 +21,107 @@ offset_right = 800.0
 offset_bottom = 624.0
 current_tab = 0
 
-[node name="Class" type="Control" parent="Control/TabContainer"]
+[node name="Character" type="Control" parent="Control/TabContainer"]
 layout_mode = 2
 metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Character"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 65.0
+offset_right = 352.0
+offset_bottom = 257.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/TabContainer/Character/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/TabContainer/Character/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(80, 30)
+layout_mode = 2
+text = "Class :"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="class" type="Label" parent="Control/TabContainer/Character/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+text = "class man"
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/TabContainer/Character/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/TabContainer/Character/VBoxContainer/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(80, 30)
+layout_mode = 2
+text = "Gender :"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="man" type="CheckBox" parent="Control/TabContainer/Character/VBoxContainer/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+button_pressed = true
+text = "Male"
+alignment = 1
+
+[node name="woman" type="CheckBox" parent="Control/TabContainer/Character/VBoxContainer/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Female"
+alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/TabContainer/Character/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/TabContainer/Character/VBoxContainer/HBoxContainer3"]
+clip_contents = true
+custom_minimum_size = Vector2(80, 30)
+layout_mode = 2
+text = "Tribe :"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="setect" type="OptionButton" parent="Control/TabContainer/Character/VBoxContainer/HBoxContainer3"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+selected = 0
+item_count = 5
+popup/item_0/text = "Human"
+popup/item_0/id = 0
+popup/item_1/text = "Haftcat"
+popup/item_1/id = 1
+popup/item_2/text = "Lizard"
+popup/item_2/id = 2
+popup/item_3/text = "Elf"
+popup/item_3/id = 3
+popup/item_4/text = "Dark Elf"
+popup/item_4/id = 4
+
+[node name="ItemList" type="ItemList" parent="Control/TabContainer/Character"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 65.0
+offset_right = 672.0
+offset_bottom = 385.0
+text_overrun_behavior = 1
+item_count = 2
+item_0/text = "Swordsman"
+item_1/text = "Wizard"
+
+[node name="next" type="Button" parent="Control/TabContainer/Character"]
+layout_mode = 0
+offset_left = 656.0
+offset_top = 513.0
+offset_right = 744.0
+offset_bottom = 544.0
+text = "Next"
 
 [node name="Traits" type="Control" parent="Control/TabContainer"]
 visible = false
@@ -35,7 +133,7 @@ layout_mode = 0
 offset_left = 352.0
 offset_top = 41.0
 offset_right = 672.0
-offset_bottom = 265.0
+offset_bottom = 257.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/TabContainer/Traits/traits_good"]
 layout_mode = 1
@@ -56,9 +154,9 @@ size_flags_vertical = 3
 [node name="traits_bad" type="Panel" parent="Control/TabContainer/Traits"]
 layout_mode = 0
 offset_left = 352.0
-offset_top = 304.0
+offset_top = 282.0
 offset_right = 672.0
-offset_bottom = 536.0
+offset_bottom = 505.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/TabContainer/Traits/traits_bad"]
 layout_mode = 1
@@ -138,11 +236,28 @@ offset_bottom = 40.0
 text = "Traits Good"
 
 [node name="tg2" type="Label" parent="Control/TabContainer/Traits"]
+layout_mode = 0
 offset_left = 352.0
-offset_top = 281.0
+offset_top = 257.0
 offset_right = 442.0
-offset_bottom = 304.0
+offset_bottom = 280.0
 text = "Traits Bad"
+
+[node name="next" type="Button" parent="Control/TabContainer/Traits"]
+layout_mode = 0
+offset_left = 656.0
+offset_top = 513.0
+offset_right = 744.0
+offset_bottom = 544.0
+text = "Next"
+
+[node name="Back" type="Button" parent="Control/TabContainer/Traits"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 513.0
+offset_right = 104.0
+offset_bottom = 544.0
+text = "<BACK>"
 
 [node name="Panel" type="Panel" parent="Control"]
 layout_mode = 0
@@ -151,78 +266,225 @@ offset_top = 64.0
 offset_right = 1088.0
 offset_bottom = 512.0
 
-[node name="hp" type="Label" parent="Control/Panel"]
-layout_mode = 2
-anchor_left = 0.125
-anchor_top = 0.0535714
-anchor_right = 0.5
-anchor_bottom = 0.125
-text = "HP"
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="hpnum" type="Label" parent="Control/Panel"]
-layout_mode = 0
-anchor_left = 0.5625
-anchor_top = 0.0535714
-anchor_right = 0.8125
-anchor_bottom = 0.125
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="hp2" type="Label" parent="Control/Panel"]
+[node name="StatusContainer" type="VBoxContainer" parent="Control/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.125
-anchor_top = 0.125
-anchor_right = 0.5
-anchor_bottom = 0.196429
-text = "HP"
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="hpnum2" type="Label" parent="Control/Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5625
-anchor_top = 0.125
-anchor_right = 0.8125
-anchor_bottom = 0.196429
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="hp3" type="Label" parent="Control/Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.125
-anchor_top = 0.196429
-anchor_right = 0.5
-anchor_bottom = 0.267857
-text = "HP"
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="hpnum3" type="Label" parent="Control/Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5625
-anchor_top = 0.196429
-anchor_right = 0.8125
-anchor_bottom = 0.267857
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchor_left = 0.03125
+anchor_top = 0.0892857
+anchor_right = 0.96875
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="Status" type="Label" parent="Control/Panel/StatusContainer"]
+layout_mode = 2
+text = "Status"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Control/Panel/StatusContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="hp" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 25)
+layout_mode = 2
+text = "HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="hpnum" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="mana" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 25)
+layout_mode = 2
+text = "MANA"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="mana_num" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Stamina" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer3"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 25)
+layout_mode = 2
+text = "Stamina"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Stamina_num" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer3"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Power" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer4"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 25)
+layout_mode = 2
+text = "Power"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Power_num" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer4"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Sanity" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer5"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 25)
+layout_mode = 2
+text = "Sanity"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Sanity_num" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer5"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Maintenance" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer6"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 25)
+layout_mode = 2
+text = "Maintenance"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Maintenance_num" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer6"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Speaking" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer7"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 25)
+layout_mode = 2
+text = "Speaking skills"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Speaking_num" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer7"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Charm" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer8"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 25)
+layout_mode = 2
+text = "Charm"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Charm_num" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer8"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Fluent" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer9"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 25)
+layout_mode = 2
+text = "Fluent"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Fluent_num" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer9"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Control/TabContainer/Character/VBoxContainer/HBoxContainer2/man" to="." method="_on_man_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Character/VBoxContainer/HBoxContainer2/woman" to="." method="_on_woman_pressed"]
+[connection signal="item_selected" from="Control/TabContainer/Character/VBoxContainer/HBoxContainer3/setect" to="." method="_on_setect_tribe_selected"]
+[connection signal="pressed" from="Control/TabContainer/Character/next" to="." method="_on_next_info_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Traits/Back" to="." method="_on_back_to_info_pressed"]
