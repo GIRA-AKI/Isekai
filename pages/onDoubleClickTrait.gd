@@ -76,10 +76,10 @@ func _on_double_click() -> void:
 			BaseSystem.bad_traits = targetTable
 	else:
 		BaseSystem.playerTraits = targetTable
-	print("-------------")
-	print(currentTable)
-	print(targetTable)
-	print(isSelect)
-	
+	#print("-------------")
+	#print(currentTable)
+	#print(targetTable)
+	#print(isSelect)
+	get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().calSelfTrait()
+
 	get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().loadAllTable()
-	

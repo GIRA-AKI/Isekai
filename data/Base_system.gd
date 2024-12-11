@@ -21,11 +21,11 @@ func _process(delta: float) -> void:
 #data for  traits
 var good_traits = [
 	{"id":101,"type":1,"title": "Strength", "point": -3, "HP": 60, "mana": 10, "stamina": 50, "power": 45, "mentalHealth": 10, "speakingSkills": 5, "charisma": 15, "dodge": 12},
-	{"id":102,"type":1,"title": "Agility", "point": -2, "HP": 30, "mana": 40, "stamina": 35, "power": 20, "mentalHealth": 20, "speakingSkills": 10, "charisma": 5, "dodge": 20}
+	{"id":102,"type":1,"title": "Agility", "point": -2, "HP": 0, "mana": 40, "stamina": 35, "power": 20, "mentalHealth": 20, "speakingSkills": 10, "charisma": 5, "dodge": 20}
 ]
 var bad_traits = [
-	{"id":103,"type":0,"title": "Weak", "point": 6, "HP": 60, "mana": 10, "stamina": 50, "power": 45, "mentalHealth": 10, "speakingSkills": 5, "charisma": 15, "dodge": 12},
-	{"id":104,"type":0,"title": "Fat", "point": 4, "HP": 30, "mana": 40, "stamina": 35, "power": 20, "mentalHealth": 20, "speakingSkills": 10, "charisma": 5, "dodge": 20}
+	{"id":103,"type":0,"title": "Weak", "point": 6, "HP": -20, "mana": 10, "stamina": 50, "power": 45, "mentalHealth": 10, "speakingSkills": 5, "charisma": 15, "dodge": 12},
+	{"id":104,"type":0,"title": "Fat", "point": 4, "HP": -40, "mana": 40, "stamina": 35, "power": 20, "mentalHealth": 20, "speakingSkills": 10, "charisma": 5, "dodge": 20}
 ]
 var playerTraits = []
 

@@ -139,7 +139,8 @@ func loadAllTable()-> void:
 	loadTraits(traits_good,BaseSystem.good_traits)
 	loadTraits(traits_bad,BaseSystem.bad_traits)
 	loadTraits(traits_use,BaseSystem.playerTraits,true)
-	calAvailablePoints();
+	calAvailablePoints()
+	calSelfTrait()
 
 func loadTraits(table, traits:Array, isPlayerTraits:bool = false) -> void:
 	
@@ -208,7 +209,7 @@ func _on_setect_tribe_selected(index: int) -> void:
 	elif index == 4:
 		onChangeTributeTo(BaseSystem.darkElve)
 
-func deleteAllTextPlus()-> void:
+func clearAllTextPlus()-> void:
 	hp_plus.text = ""
 	mana_plus.text = ""
 	stamina_plus.text = ""
@@ -225,7 +226,7 @@ func _on_next_info_pressed() -> void:
 	for key in statsFromClass.keys():
 		if key != "id" and key != "class_id" and typeof(statsFromClass[key]) == TYPE_INT:
 			stats[key] += statsFromClass[key]
-	deleteAllTextPlus()
+	calSelfTrait()
 	reDisplayStats()
 	
 
@@ -287,4 +288,40 @@ func textPlus(label_ref,text:int,_backSign:String = "")-> void:
 		label_ref.text = ""
 	else :
 		label_ref.text = (frontSign + str(text) + " "+backSign)
+
+func calSelfTrait()-> void:
+	var statsFromTraits = {	
+		"hp":0,
+		"mana":30,
+		"stamina":0,
+		"power":0,
+		"sanity":0,
+		"maintenance":0,
+		"speaking":0,
+		"charm":0,
+		"fluent":0 }
 		
+	if BaseSystem.playerTraits == null or BaseSystem.playerTraits.size() == 0:
+		clearAllTextPlus()
+		return  # Exit the function early
+	for i in BaseSystem.playerTraits:
+		statsFromTraits["hp"] += i.get("HP", 0)  # Default to 0 if key does not exist
+		statsFromTraits["mana"] += i.get("mana", 0)
+		statsFromTraits["stamina"] += i.get("stamina", 0)
+		statsFromTraits["power"] += i.get("power", 0)
+		statsFromTraits["sanity"] += i.get("sanity", 0)
+		statsFromTraits["maintenance"] += i.get("speakingSkills", 0)
+		statsFromTraits["speaking"] += i.get("charisma", 0)
+		statsFromTraits["charm"] += i.get("dodge", 0)
+		
+	textPlus(hp_plus,statsFromTraits.hp)
+	textPlus(mana_plus,statsFromTraits.mana)
+	textPlus(stamina_plus,statsFromTraits.stamina)
+	textPlus(power_plus,statsFromTraits.power)
+	textPlus(sanity_plus,statsFromTraits.sanity)
+	textPlus(maintenance_plus,statsFromTraits.maintenance)
+	textPlus(Speaking_plus,statsFromTraits.speaking)
+	textPlus(Charm_plus,statsFromTraits.charm)
+	textPlus(Fluent_plus,statsFromTraits.fluent)
+	#print("statsFromTraits ----------------")
+	#print(statsFromTraits)
