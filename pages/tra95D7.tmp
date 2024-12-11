@@ -47,7 +47,7 @@ vertical_alignment = 1
 clip_contents = true
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
-text = "None"
+text = "class man"
 vertical_alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/TabContainer/Character/VBoxContainer"]
@@ -110,6 +110,9 @@ offset_top = 65.0
 offset_right = 672.0
 offset_bottom = 385.0
 text_overrun_behavior = 1
+item_count = 2
+item_0/text = "Swordsman"
+item_1/text = "Wizard"
 
 [node name="next" type="Button" parent="Control/TabContainer/Character"]
 layout_mode = 0
@@ -303,10 +306,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="hp_plus" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer"]
-layout_mode = 2
-text = "  "
-
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
 layout_mode = 2
 alignment = 1
@@ -328,10 +327,6 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="mana_plus" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer2"]
-layout_mode = 2
-text = "  "
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
 layout_mode = 2
@@ -355,10 +350,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="stamina_plus" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer3"]
-layout_mode = 2
-text = "  "
-
 [node name="HBoxContainer4" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
 layout_mode = 2
 alignment = 1
@@ -380,10 +371,6 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="power_plus" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer4"]
-layout_mode = 2
-text = "  "
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
 layout_mode = 2
@@ -407,10 +394,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="sanity_plus" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer5"]
-layout_mode = 2
-text = "  "
-
 [node name="HBoxContainer6" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
 layout_mode = 2
 alignment = 1
@@ -432,10 +415,6 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="maintenance_plus" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer6"]
-layout_mode = 2
-text = "  "
 
 [node name="HBoxContainer7" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
 layout_mode = 2
@@ -459,10 +438,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="speaking_plus" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer7"]
-layout_mode = 2
-text = "  "
-
 [node name="HBoxContainer8" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
 layout_mode = 2
 alignment = 1
@@ -485,10 +460,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="charm_plus" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer8"]
-layout_mode = 2
-text = "  "
-
 [node name="HBoxContainer9" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
 layout_mode = 2
 alignment = 1
@@ -510,10 +481,6 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="fluent_plus" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer9"]
-layout_mode = 2
-text = "  "
 
 [connection signal="pressed" from="Control/TabContainer/Character/VBoxContainer/HBoxContainer2/man" to="." method="_on_man_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Character/VBoxContainer/HBoxContainer2/woman" to="." method="_on_woman_pressed"]

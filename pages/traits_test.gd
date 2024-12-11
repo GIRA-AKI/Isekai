@@ -18,34 +18,122 @@ var list_item = preload("res://pages/traits_set.tscn")
 @onready var Speaking_text = $Control/Panel/StatusContainer/HBoxContainer7/Speaking_num
 @onready var Charm_text = $Control/Panel/StatusContainer/HBoxContainer8/Charm_num
 @onready var Fluent_text = $Control/Panel/StatusContainer/HBoxContainer9/Fluent_num
+@onready var woman_btn = $Control/TabContainer/Character/VBoxContainer/HBoxContainer2/woman
+@onready var man_btn = $Control/TabContainer/Character/VBoxContainer/HBoxContainer2/man
 
+@onready var hp_plus = $Control/Panel/StatusContainer/HBoxContainer/hp_plus
+@onready var mana_plus = $Control/Panel/StatusContainer/HBoxContainer2/mana_plus
+@onready var stamina_plus = $Control/Panel/StatusContainer/HBoxContainer3/stamina_plus
+@onready var power_plus = $Control/Panel/StatusContainer/HBoxContainer4/power_plus
+@onready var sanity_plus = $Control/Panel/StatusContainer/HBoxContainer5/sanity_plus
+@onready var maintenance_plus = $Control/Panel/StatusContainer/HBoxContainer6/maintenance_plus
+@onready var Speaking_plus = $Control/Panel/StatusContainer/HBoxContainer7/speaking_plus
+@onready var Charm_plus = $Control/Panel/StatusContainer/HBoxContainer8/charm_plus
+@onready var Fluent_plus = $Control/Panel/StatusContainer/HBoxContainer9/fluent_plus
+
+@onready var player_class_table = $Control/TabContainer/Character/ItemList
 #Character
-@onready var Player_Class = $Control/TabContainer/Character/VBoxContainer/HBoxContainer/class
-var Player_tribe
-var sex
-var hp
-var mana
-var stamina
-var power
-var sanity
-var maintenance
-var Speaking
-var Charm
-var Fluent
+@onready var player_class_label = $Control/TabContainer/Character/VBoxContainer/HBoxContainer/class
+
+var statsFromClass
+var stats = {
+	"id":null,
+	"tribute":"",
+	"sex":"",
+	"hp":0,
+	"mana":0,
+	"stamina":0,
+	"power":0,
+	"sanity":0,
+	"maintenance":0,
+	"speaking":0,
+	"charm":0,
+	"fluent":0,
+	"class_id":null,
+}
+
+var player_class = {
+	"warrior":{
+		"id":0,
+		"title":"Warrior",
+		"self":{
+			"hp":10,
+			"mana":0,
+			"stamina":20,
+			"power":10,
+			"sanity":0,
+			"maintenance":0,
+			"speaking":0,
+			"charm":0,
+			"fluent":0
+		}
+	},
+	"magician":{
+		"id":1,
+		"title":"Magician",
+		"self":{
+			"hp":0,
+			"mana":30,
+			"stamina":0,
+			"power":0,
+			"sanity":0,
+			"maintenance":0,
+			"speaking":0,
+			"charm":0,
+			"fluent":0
+		}
+	},
+	"archer":{
+		"id":2,
+		"title":"Archer",
+		"self":{
+			"hp":0,
+			"mana":0,
+			"stamina":10,
+			"power":10,
+			"sanity":0,
+			"maintenance":10,
+			"speaking":0,
+			"charm":0,
+			"fluent":0
+		}
+	},
+	"assasin":{
+		"id":3,
+		"title":"Assasin",
+		"self":{
+			"hp":-10,
+			"mana":0,
+			"stamina":0,
+			"power":40,
+			"sanity":0,
+			"maintenance":0,
+			"speaking":0,
+			"charm":0,
+			"fluent":0
+		}
+	},
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_on_man_pressed()
+	loadPlayerClass()
 	loadAllTable()
 	_on_setect_tribe_selected(0)
+	_on_item_list_item_selected(0)
 	pass
-
+	
+func loadPlayerClass() -> void:
+	for i in player_class:
+		player_class_table.add_item(player_class[i]["title"])
+	pass
+	
 func calAvailablePoints():
 	var current_point = 10
 	for i in BaseSystem.playerTraits:
 		current_point += i["point"]
 	available_points.text = str(current_point)
-	print(current_point)
-	print("available_points was trigger")
 	
 func loadAllTable()-> void:
 	loadTraits(traits_good,BaseSystem.good_traits)
@@ -70,51 +158,133 @@ func loadTraits(table, traits:Array, isPlayerTraits:bool = false) -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	hp_text.text = str(hp)
-	mana_text.text = str(mana)
-	stamina_text.text = str(stamina)
-	power_text.text = str(power)
-	sanity_text.text = str(sanity) + "%"
-	maintenance_text.text = str(maintenance) + "%"
-	Speaking_text.text = str(Speaking) + "%"
-	Charm_text.text = str(Charm) + "%"
-	Fluent_text.text = str(Fluent)
 	pass
-
+	
+func reDisplayStats():
+	hp_text.text = str(stats.hp)
+	mana_text.text = str(stats.mana)
+	stamina_text.text = str(stats.stamina)
+	power_text.text = str(stats.power)
+	sanity_text.text = str(stats.sanity) + "%"
+	maintenance_text.text = str(stats.maintenance) + "%"
+	Speaking_text.text = str(stats.speaking) + "%"
+	Charm_text.text = str(stats.charm) + "%"
+	Fluent_text.text = str(stats.fluent)
+	
+func onChangeTributeTo(tribute):
+	var old_tribute = null
+	if stats.id == 0:
+		old_tribute = BaseSystem.human
+	elif stats.id == 1:
+		old_tribute = BaseSystem.cat
+	elif stats.id == 2:
+		old_tribute = BaseSystem.lizard
+	elif stats.id == 3:
+		old_tribute = BaseSystem.elve
+	elif stats.id == 4:
+		old_tribute = BaseSystem.darkElve
+	
+	if old_tribute:
+		for key in stats.keys():
+				if key != "id" and key != "class_id" and typeof(stats[key]) == TYPE_INT: 
+					stats[key] -= old_tribute[key]
+				
+	for key in tribute.keys():
+			if key != "id" and key != "class_id" and typeof(tribute[key]) == TYPE_INT:
+				stats[key] += tribute[key]
+	stats.id = tribute.id
+	stats.tribute = tribute.tribute
+	reDisplayStats()
+	
 func _on_setect_tribe_selected(index: int) -> void:
-	if index ==0:
-		Player_tribe = "Human"
-		hp = 100
-		mana = 20
-		stamina = 50
-		power = 20
-		sanity = 100
-		maintenance = 50
-		Speaking = 100
-		Charm = 100
-		Fluent = 10
-	elif index ==1:
-		Player_tribe = "HaftCat"
-	elif index ==2:
-		Player_tribe = "Lizard"
-	elif index ==3:
-		Player_tribe = "Elf"
-	elif index ==4:
-		Player_tribe = "Dark Elf"
-	pass # Replace with function body.
+	if index == 0:
+		onChangeTributeTo(BaseSystem.human)
+	elif index == 1:
+		onChangeTributeTo(BaseSystem.cat)
+	elif index == 2:
+		onChangeTributeTo(BaseSystem.lizard)
+	elif index == 3:
+		onChangeTributeTo(BaseSystem.elve)
+	elif index == 4:
+		onChangeTributeTo(BaseSystem.darkElve)
 
+func deleteAllTextPlus()-> void:
+	hp_plus.text = ""
+	mana_plus.text = ""
+	stamina_plus.text = ""
+	power_plus.text = ""
+	sanity_plus.text = ""
+	maintenance_plus.text = ""
+	Speaking_plus.text = ""
+	Charm_plus.text = ""
+	Fluent_plus.text = ""
+	
 func _on_next_info_pressed() -> void:
 	$Control/TabContainer/Traits.visible = true
-	pass # Replace with function body.
+	
+	for key in statsFromClass.keys():
+		if key != "id" and key != "class_id" and typeof(statsFromClass[key]) == TYPE_INT:
+			stats[key] += statsFromClass[key]
+	deleteAllTextPlus()
+	reDisplayStats()
+	
 
 func _on_back_to_info_pressed() -> void:
 	$Control/TabContainer/Character.visible = true
-	pass # Replace with function body.
+	var old_class_from_stats
+	
+	for i in player_class.keys():
+		var class_data = player_class[i]
+		if class_data["id"] == stats.class_id:
+			old_class_from_stats = class_data["self"]
+	
+	for key in old_class_from_stats.keys():
+		if key != "id" and key != "class_id" and typeof(old_class_from_stats[key]) == TYPE_INT: 
+			stats[key] -= old_class_from_stats[key]
+	
+	_on_item_list_item_selected(stats.class_id)
+	reDisplayStats()
 
 func _on_man_pressed() -> void:
-	$Control/TabContainer/Character/VBoxContainer/HBoxContainer2/woman.button_pressed = false
-	sex = "M"
+	woman_btn.button_pressed = false
+	man_btn.button_pressed = true
+	stats.sex = "M"
 
 func _on_woman_pressed() -> void:
-	$Control/TabContainer/Character/VBoxContainer/HBoxContainer2/man.button_pressed = false
-	sex = "F"
+	man_btn.button_pressed = false
+	woman_btn.button_pressed = true
+	stats.sex = "F"
+
+func _on_item_list_item_selected(index: int) -> void:
+	var keys = player_class.keys()
+	var selected_class = keys[index]
+	player_class_label.text = player_class[selected_class]["title"]
+	
+	statsFromClass = player_class[selected_class]["self"]
+	stats.class_id = index
+	
+	textPlus(hp_plus,player_class[selected_class]["self"].hp)
+	textPlus(mana_plus,player_class[selected_class]["self"].mana)
+	textPlus(stamina_plus,player_class[selected_class]["self"].stamina)
+	textPlus(power_plus,player_class[selected_class]["self"].power)
+	textPlus(sanity_plus,player_class[selected_class]["self"].sanity)
+	textPlus(maintenance_plus,player_class[selected_class]["self"].maintenance)
+	textPlus(Speaking_plus,player_class[selected_class]["self"].speaking)
+	textPlus(Charm_plus,player_class[selected_class]["self"].charm)
+	textPlus(Fluent_plus,player_class[selected_class]["self"].fluent)
+	
+func textPlus(label_ref,text:int,_backSign:String = "")-> void:
+	var frontSign = ""
+	var backSign = _backSign
+
+	if text > 0 :
+		label_ref.add_theme_color_override("font_color","green")
+		frontSign = "+"
+	elif text < 0:
+		label_ref.add_theme_color_override("font_color","red")
+	
+	if text == 0 :
+		label_ref.text = ""
+	else :
+		label_ref.text = (frontSign + str(text) + " "+backSign)
+		

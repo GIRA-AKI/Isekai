@@ -81,5 +81,5 @@ func _on_double_click() -> void:
 	print(targetTable)
 	print(isSelect)
 	
-	get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().loadAllTable()
+	get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().loadAllTable()
 	
