@@ -20,10 +20,24 @@ offset_top = 32.0
 offset_right = 800.0
 offset_bottom = 624.0
 current_tab = 0
+tabs_visible = false
+deselect_enabled = true
 
 [node name="Character" type="Control" parent="Control/TabContainer"]
 layout_mode = 2
 metadata/_tab_index = 0
+
+[node name="titel" type="Label" parent="Control/TabContainer/Character"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0104167
+anchor_top = 0.0135135
+anchor_right = 0.208333
+anchor_bottom = 0.0675676
+text = "<CHARACTER>"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Character"]
 layout_mode = 0
@@ -39,7 +53,7 @@ layout_mode = 2
 clip_contents = true
 custom_minimum_size = Vector2(80, 30)
 layout_mode = 2
-text = "Class :"
+text = "<CLASS>"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -57,7 +71,7 @@ layout_mode = 2
 clip_contents = true
 custom_minimum_size = Vector2(80, 30)
 layout_mode = 2
-text = "Gender :"
+text = "<SEX>"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -66,14 +80,14 @@ clip_contents = true
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 button_pressed = true
-text = "Male"
+text = "<MAN>"
 alignment = 1
 
 [node name="woman" type="CheckBox" parent="Control/TabContainer/Character/VBoxContainer/HBoxContainer2"]
 clip_contents = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "Female"
+text = "<WOMAN>"
 alignment = 1
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Control/TabContainer/Character/VBoxContainer"]
@@ -83,7 +97,7 @@ layout_mode = 2
 clip_contents = true
 custom_minimum_size = Vector2(80, 30)
 layout_mode = 2
-text = "Tribe :"
+text = "<TRIBE>"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -93,14 +107,15 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 selected = 0
 item_count = 5
-popup/item_0/text = "Human"
-popup/item_1/text = "Haftcat"
+popup/item_0/text = "<HUMAN>"
+popup/item_0/id = 0
+popup/item_1/text = "<HATFCAT>"
 popup/item_1/id = 1
-popup/item_2/text = "Lizard"
+popup/item_2/text = "<LIZARD>"
 popup/item_2/id = 2
-popup/item_3/text = "Elf"
+popup/item_3/text = "<ELF>"
 popup/item_3/id = 3
-popup/item_4/text = "Dark Elf"
+popup/item_4/text = "<DARKELF>"
 popup/item_4/id = 4
 
 [node name="ItemList" type="ItemList" parent="Control/TabContainer/Character"]
@@ -123,6 +138,18 @@ text = "Next"
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="titel" type="Label" parent="Control/TabContainer/Traits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0104167
+anchor_top = 0.0135135
+anchor_right = 0.208333
+anchor_bottom = 0.0675676
+text = "Traitel"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="traits_good" type="Panel" parent="Control/TabContainer/Traits"]
 layout_mode = 0
@@ -257,17 +284,17 @@ text = "<BACK>"
 
 [node name="Panel" type="Panel" parent="Control"]
 layout_mode = 0
-offset_left = 832.0
+offset_left = 816.0
 offset_top = 64.0
-offset_right = 1088.0
-offset_bottom = 512.0
+offset_right = 1136.0
+offset_bottom = 576.0
 
 [node name="StatusContainer" type="VBoxContainer" parent="Control/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.03125
-anchor_top = 0.0892857
-anchor_right = 0.96875
+anchor_left = 0.025
+anchor_top = 0.0625
+anchor_right = 0.975
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -275,7 +302,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Status" type="Label" parent="Control/Panel/StatusContainer"]
 layout_mode = 2
-text = "Status"
+text = "<STATUS>"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="Control/Panel/StatusContainer"]
@@ -287,25 +314,28 @@ alignment = 1
 
 [node name="hp" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer"]
 clip_contents = true
-custom_minimum_size = Vector2(120, 25)
+custom_minimum_size = Vector2(180, 25)
 layout_mode = 2
-text = "HP"
+text = "<HP>"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="hpnum" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer"]
 clip_contents = true
-custom_minimum_size = Vector2(100, 25)
+custom_minimum_size = Vector2(60, 25)
 layout_mode = 2
 text = "0"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="hp_plus" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
 text = "  "
+vertical_alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
 layout_mode = 2
@@ -313,25 +343,28 @@ alignment = 1
 
 [node name="mana" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer2"]
 clip_contents = true
-custom_minimum_size = Vector2(120, 25)
+custom_minimum_size = Vector2(180, 25)
 layout_mode = 2
-text = "MANA"
+text = "<MANA>"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="mana_num" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer2"]
 clip_contents = true
-custom_minimum_size = Vector2(100, 25)
+custom_minimum_size = Vector2(60, 25)
 layout_mode = 2
 text = "0"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="mana_plus" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
 text = "  "
+vertical_alignment = 1
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
 layout_mode = 2
@@ -339,25 +372,28 @@ alignment = 1
 
 [node name="Stamina" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer3"]
 clip_contents = true
-custom_minimum_size = Vector2(120, 25)
+custom_minimum_size = Vector2(180, 25)
 layout_mode = 2
-text = "Stamina"
+text = "<STAMINA>"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Stamina_num" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer3"]
 clip_contents = true
-custom_minimum_size = Vector2(100, 25)
+custom_minimum_size = Vector2(60, 25)
 layout_mode = 2
 text = "0"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="stamina_plus" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer3"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
 text = "  "
+vertical_alignment = 1
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
 layout_mode = 2
@@ -365,25 +401,28 @@ alignment = 1
 
 [node name="Power" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer4"]
 clip_contents = true
-custom_minimum_size = Vector2(120, 25)
+custom_minimum_size = Vector2(180, 25)
 layout_mode = 2
-text = "Power"
+text = "<POWER>"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Power_num" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer4"]
 clip_contents = true
-custom_minimum_size = Vector2(100, 25)
+custom_minimum_size = Vector2(60, 25)
 layout_mode = 2
 text = "0"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="power_plus" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer4"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
 text = "  "
+vertical_alignment = 1
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
 layout_mode = 2
@@ -391,25 +430,28 @@ alignment = 1
 
 [node name="Sanity" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer5"]
 clip_contents = true
-custom_minimum_size = Vector2(120, 25)
+custom_minimum_size = Vector2(180, 25)
 layout_mode = 2
-text = "Sanity"
+text = "<SANITY>"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Sanity_num" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer5"]
 clip_contents = true
-custom_minimum_size = Vector2(100, 25)
+custom_minimum_size = Vector2(60, 25)
 layout_mode = 2
 text = "0"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="sanity_plus" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer5"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
 text = "  "
+vertical_alignment = 1
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
 layout_mode = 2
@@ -417,25 +459,28 @@ alignment = 1
 
 [node name="Maintenance" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer6"]
 clip_contents = true
-custom_minimum_size = Vector2(120, 25)
+custom_minimum_size = Vector2(180, 25)
 layout_mode = 2
-text = "Maintenance"
+text = "<MAINTENANCE>"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Maintenance_num" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer6"]
 clip_contents = true
-custom_minimum_size = Vector2(100, 25)
+custom_minimum_size = Vector2(60, 25)
 layout_mode = 2
 text = "0"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="maintenance_plus" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer6"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
 text = "  "
+vertical_alignment = 1
 
 [node name="HBoxContainer7" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
 layout_mode = 2
@@ -443,25 +488,28 @@ alignment = 1
 
 [node name="Speaking" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer7"]
 clip_contents = true
-custom_minimum_size = Vector2(120, 25)
+custom_minimum_size = Vector2(180, 25)
 layout_mode = 2
-text = "Speaking skills"
+text = "<SPEAKING_SKILLS>"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Speaking_num" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer7"]
 clip_contents = true
-custom_minimum_size = Vector2(100, 25)
+custom_minimum_size = Vector2(60, 25)
 layout_mode = 2
 text = "0"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="speaking_plus" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer7"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
 text = "  "
+vertical_alignment = 1
 
 [node name="HBoxContainer8" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
 layout_mode = 2
@@ -469,25 +517,28 @@ alignment = 1
 
 [node name="Charm" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer8"]
 clip_contents = true
-custom_minimum_size = Vector2(120, 25)
+custom_minimum_size = Vector2(180, 25)
 layout_mode = 2
-text = "Charm"
+text = "<CHARN>"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Charm_num" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer8"]
 clip_contents = true
-custom_minimum_size = Vector2(100, 25)
+custom_minimum_size = Vector2(60, 25)
 layout_mode = 2
 text = "0"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="charm_plus" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer8"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
 text = "  "
+vertical_alignment = 1
 
 [node name="HBoxContainer9" type="HBoxContainer" parent="Control/Panel/StatusContainer"]
 layout_mode = 2
@@ -495,25 +546,31 @@ alignment = 1
 
 [node name="Fluent" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer9"]
 clip_contents = true
-custom_minimum_size = Vector2(120, 25)
+custom_minimum_size = Vector2(180, 25)
 layout_mode = 2
-text = "Fluent"
+text = "<FLUENT>"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Fluent_num" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer9"]
 clip_contents = true
-custom_minimum_size = Vector2(100, 25)
+custom_minimum_size = Vector2(60, 25)
 layout_mode = 2
 text = "0"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="fluent_plus" type="Label" parent="Control/Panel/StatusContainer/HBoxContainer9"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
 text = "  "
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Control/Panel/StatusContainer"]
+layout_mode = 2
 
 [connection signal="pressed" from="Control/TabContainer/Character/VBoxContainer/HBoxContainer2/man" to="." method="_on_man_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Character/VBoxContainer/HBoxContainer2/woman" to="." method="_on_woman_pressed"]

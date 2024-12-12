@@ -27,3 +27,25 @@ ON,ON,เปิด
 <START_RESO>,Start Resource,ทรัพยากรเริ่มต้น
 <RANDOM>,Random,สุ่ม
 <HARD>,HARE,ยาก
+<CHARACTER>,Character,ตัวละคร
+<CLASS>,Class :,อาชีพ :
+<SEX>,Gender :,เพศ :
+<TRIBE>,Tribe :,เผ่าพันธ์ :
+<MAN>,Male,ชาย
+<WOMAN>,Female,หญิง
+<HUMAN>,Human,มนุษย์
+<HATFCAT>,Haftcat,มนุษย์แมว
+<LIZARD>,Lizard,มนุษย์กิ้งก่า
+<ELF>,Elf,เอลฟ์
+<DARKELF>,Dark Elf,เอลฟ์มืด
+,,
+<STATUS>,Status,สถานนะ
+<HP>,HP,พลังชีวิต
+<MANA>,Mana,มานา
+<STAMINA>,Stamina,แรงกาย
+<POWER>,Power,พลกำลัง
+<SANITY>,Sanity,ค่าต้านจิต
+<MAINTENANCE>,Maintenance,การดูแลรักษาอาวุธ
+<SPEAKING_SKILLS>,Speaking skills,ค่าการพูดคุย
+<CHARN>,Charn,เสน่ห์
+<FLUENT>,Fluent,คล่องแคล่ว
