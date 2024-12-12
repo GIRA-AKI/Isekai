@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://busmfydcnttuf"]
+
+[node name="local_i" type="Button"]
+clip_contents = true
+custom_minimum_size = Vector2(300, 40)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+
+[node name="name" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0263158
+anchor_right = 0.473684
+anchor_bottom = 1.0
+text = "room"
+vertical_alignment = 1
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ip" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "IP : 192.168.0.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
