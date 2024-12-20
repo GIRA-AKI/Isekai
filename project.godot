@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 ServiceDiscovery="*res://addons/lan_servers_discovery/servers_discovery.gd"
 BaseSystem="*res://data/Base_system.gd"
+Bgm="*res://bgm.tscn"
 
 [editor_plugins]
 

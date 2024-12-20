@@ -1,8 +1,13 @@
 extends Node
 
+var bus = AudioBusLayout.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	bus = load("res://default_bus_layout.tres")
+	#AudioServer.set_bus_volume_db(BaseSystem.bus_name,5)
+	AudioServer.set_bus_volume_db(BaseSystem.bus_name,BaseSystem.vol_bg)
+	$Control/HSlider.value = BaseSystem.vol_bg
 	pass # Replace with function body.
 
 
@@ -41,4 +46,14 @@ func _on_sizewindow_item_selected(index: int) -> void:
 		DisplayServer.window_set_size(Vector2i(1152, 648))
 	elif index==2:
 		DisplayServer.window_set_size(Vector2i(1920, 1080))
+	pass # Replace with function body.
+
+
+func _on_h_slider_value_changed(value: float) -> void:
+	BaseSystem.vol_bg = value
+	AudioServer.set_bus_volume_db(BaseSystem.bus_name,value)
+	if value == -10 :
+		AudioServer.set_bus_mute(BaseSystem.bus_name,true)
+	else:
+		AudioServer.set_bus_mute(BaseSystem.bus_name,false)
 	pass # Replace with function body.

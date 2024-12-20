@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwcaj4m25fp0p"
+path="res://.godot/imported/Medieval Flute Relaxing Music.mp3-b4c566fca6790c6246b75188a996d401.mp3str"
+
+[deps]
+
+source_file="res://Medieval Flute Relaxing Music.mp3"
+dest_files=["res://.godot/imported/Medieval Flute Relaxing Music.mp3-b4c566fca6790c6246b75188a996d401.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
